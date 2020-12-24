@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8">
+      <title>Basic Banking System-customer</title>
+      <link rel="stylesheet" href="styles2.css">
+      <link rel="icon" href="https://image.shutterstock.com/image-vector/bank-icon-logo-vector-260nw-399995245.jpg">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+      <script src="https://use.fontawesome.com/07d62e5a9f.js"></script>
+      <link href="https://use.fontawesome.com/07d62e5a9f.css" media="all" rel="stylesheet">
+      <style>
+        #title{
+    background-color: #bc6ff1;
+    padding: 3% 7%;
+  
+  }
+  
+  .download-button{
+      margin: 5% 3% 5% 0;
+  }
+  
+  .title-image{
+    padding-top: 10%;
+  }
+  
+  .main-text{
+    font-size: 3rem;
+    line-height: 1.5;
+    color:#fff;
+  }
+  
+  .covid-text{
+    text-align: center;
+    padding-top: 1px;
+  }
+  
+  /* Second section for customer table  */
+  #customer-table{
+    text-align: center;
+    padding: 5% 15%;
+  }
+  
+  /* cta */
+  #cta{
+    background-color: #bc6ff1;
+    padding: 7% 15%;
+    text-align: center;
+    line-height: 1.5;
+    color: #fff;
+  }
+  
+  
+  
+  /* footer */
+  #footer{
+    padding: 4% 15%;
+    text-align: center;
+  }
+  .social-icon{
+    margin: 2% 2%;
+  }
+  
+  
+  /* pop up button    */
+  
+  
+    body {font-family: Arial, Helvetica, sans-serif; 
+          box-sizing:border-box;}
+  /* The popup form - hidden by default */
+  .form-popup {
+    display: none;
+    position: fixed;
+    bottom: 100px;
+    right: 800px;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+  }
+  
+  /* Add styles to the form container */
+  .form-container {
+    max-width: 300px;
+    padding: 10px;
+    background-color: white;
+  }
+  
+  /* Full-width input fields */
+  .form-container input[type=text], .form-container input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background-color: aqua;
+  }
+  
+  /* When the inputs get focus, do something */
+  .form-container input[type=text]:focus, .form-container input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+  }
+  
+  /* Set a style for the submit/login button */
+  .form-container .btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom:10px;
+    opacity: 0.8;
+  }
+  
+  /* Add a red background color to the cancel button */
+  .form-container .cancel {
+    background-color: red;
+  }
+  
+  /* Add some hover effects to buttons */
+  .form-container .btn:hover, .open-button:hover {
+    opacity: 1;
+  }
+
+      </style>
+  </head>
+  <body>
+    <section id="title">
+        <div class="row">
+          <div class="col-lg-6">
+            <a href="Home page.html"><img src="images/logo.png" alt=""></a>
+            <h1 class="main-text">Customers</h1>
+            <a href="Home page.html"><button type="button" class="btn btn-dark btn-lg download-button"><i class="fa fa-home" aria-hidden="true"></i> Home</button></a>
+            <button type="button" class="btn btn-outline-dark btn-lg download-button" onclick="openForm()"><i class="fa fa-money" aria-hidden="true"></i> Transfer Money</button>
+            <div class="form-popup" id="myForm">
+              <form action="respnose.php" method="post" class="form-container">
+    
+                <label for="email"><b>Transfer from:</b></label>
+                <input id="email" type="text" placeholder="Enter Accont Number" name="emailfrom" required="">
+                
+                <label for="email"><b>Transfer To:</b></label>
+                <input id="email" type="text" placeholder="Enter Account Number" name="emailto" required="">
+    
+    
+                <label for="amount"><b>Amount:</b></label>
+                <input id="amount" type="text" placeholder="Enter Amount" name="amount" required="">
+    
+                <button type="submit" class="btn">Transfer</button>
+                <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+              </form>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public"><img src="https://cdn5.vectorstock.com/i/1000x1000/22/99/protect-yourself-from-covid-19-poster-with-flat-vector-31322299.jpg" alt="customer-satisfaction" width="100%"></a>
+            <p class="covid-text">Protect yourself and others from COVID-19.</p>
+          </div>
+        </div>
+        <script>
+          function openForm() {
+            document.getElementById("myForm").style.display = "block";
+          }
+    
+          function closeForm() {
+            document.getElementById("myForm").style.display = "none";
+          }
+        </script>
+    
+    
+      </section>
+      <section id="customer-table">
+        <h1>Information of our customers</h1>
+        <table id="employee_grid" class="table" width="100%" cellspacing="0">
+                <tbody><tr>
+                    <th>Name</th>
+                    <th>Account Number</th>
+                    <th>Balance</th>
+                </tr> 
+    <tr><td>Aparajita </td> <td>3500 6556 1000</td> <td>50000</td></tr>
+    <tr><td>Gunjan</td> <td>3500 6556 1001</td> <td>45000</td></tr>
+    <tr><td>sunil</td> <td>3500 6556 1002</td> <td>40000</td></tr>
+    <tr><td>Mary</td> <td>3500 6556 1003</td> <td>20000</td></tr>
+    <tr><td>Meena</td> <td>3500 6556 1004</td> <td>51000</td></tr>
+    <tr><td>Neha</td> <td>3500 6556 1005</td> <td>10000</td></tr>
+    <tr><td>Ravi</td> <td>3500 6556 1006</td> <td>9800</td></tr>
+    <tr><td>Sangita</td> <td>3500 6556 1007</td> <td>31500</td></tr>
+    <tr><td>Priya</td> <td>3500 6556 1008</td> <td>10000</td></tr>
+    <tr><td>Manab</td><td>3500 6556 1009</td><td>25000</td></tr>
+  </tbody>
+</table>
+    
+    
+    
+    </section>
+    <section id="cta" class="coloured-section">
+        <h3 class="main-text">Task 1: Basic Banking System.Design and Devloped by Aparajita Mishra under the Internship of The Sparks Foundation.</h3>
+        <a href=""><button type="button" class="btn btn-dark btn-lg download-button"><i class="fa fa-globe" aria-hidden="true"></i> Developer</button></a>
+      </section>
+      <footer id="footer" class="white-section">
+        <i class="social-icon fa fa-twitter" aria-hidden="true"></i>
+        <i class="social-icon fa fa-facebook-square" aria-hidden="true"></i>
+        <i class="social-icon fa fa-instagram" aria-hidden="true"></i>
+        <i class="social-icon fa fa-envelope" aria-hidden="true"></i>
+        <p>© Copyright 2020 Ara Bank.</p>
+      </footer>
+  </body>
+</html>
